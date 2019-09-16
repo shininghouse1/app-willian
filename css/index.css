@@ -28,12 +28,25 @@ a:hover {
     color: rgb(255, 69, 0); /* Cor dos links com 'hover' */
 }
 
+/* Toda a página */
+#wrap {
+    background: rgba(255,255,255,.7);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
 /* Estilos do header */
 header {
     display: flex;
     justify-content: space-between;
     background: #00465c; /* Cor do fundo do cabeçalho */
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
 }
 header h1 {
     margin: 0;
@@ -59,17 +72,43 @@ header a {
     align-items: center;
     color: #c7e2eb; /* Cor dos links do cabeçalho */
     font-size: 1.5rem;
+    transition: .5s;
 }
 header a:hover {
     color: #c7e2eb; /* Cor dos links do cabeçalho em hover */
-} 
+}
+
+/* Anima botão */
+.rotateMenuBtn {
+    transform: rotate(-270deg);
+}
 
 /* Meu principal */
 nav {
     display: flex;
     flex-direction: column;
     background: #006280;
+    position: fixed;
+    z-index: 100;
+    top: 4rem;
+    left: -468px;
 }
+
+/* Animação do menu principal */
+.slideOn {
+    animation: slideOn 0.5s forwards;
+}
+.slideOff {
+    left: 0;
+    animation: slideOff 1s forwards;
+}
+@keyframes slideOn {
+    100% { left: 0; }
+}
+@keyframes slideOff {
+    100% { left: -468px; }
+}
+
 nav a {
     color: #ddd;
     padding: .5rem 1.5rem .5rem 1rem;
@@ -77,4 +116,27 @@ nav a {
 nav a:hover {
     background: #ddd;
     color: #006280;
+}
+nav hr {
+    border: 0;
+    margin: 0;
+    border-bottom: 1px dotted #ddd;
+}
+
+/* Modais */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 90;
+    display: none;
+}
+
+/* conteúdo da página */
+main {
+    padding-top: 4rem;
+    flex-grow: 1;
 }
