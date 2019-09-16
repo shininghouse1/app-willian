@@ -60,3 +60,21 @@ header a {
     color: #c7e2eb; /* Cor dos links do cabeçalho */
     font-size: 1.5rem;
 }
+header a:hover {
+    color: #c7e2eb; /* Cor dos links do cabeçalho em hover */
+} 
+
+/* Meu principal */
+nav {
+    display: flex;
+    flex-direction: column;
+    background: #006280;
+}
+nav a {
+    color: #ddd;
+    padding: .5rem 1.5rem .5rem 1rem;
+}
+nav a:hover {
+    background: #ddd;
+    color: #006280;
+}
