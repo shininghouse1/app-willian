@@ -1,0 +1,62 @@
+/* FOLHAS DE ESTILO DO TEMA DO APP */
+
+/* CSS reset */
+* {
+    box-sizing: border-box;
+}
+*:focus {
+    outline: none;
+}
+html, body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    font-family: sans-serif; /* Fonte padrão do app */
+    font-size: 16px; /* Tamanho da fonte não menor 12px */
+}
+body {
+    background: url('../img/backrground03.jpg') fixed; /* Imagem ou cor de fundo */ 
+    color: #444; /* Cor dos textos */
+}
+a {
+    color: rgb(70, 130, 180); /* Cor padrão dos links */
+    text-decoration: none;
+}
+a:hover {
+    color: rgb(255, 69, 0); /* Cor dos links com 'hover' */
+}
+
+/* Estilos do header */
+header {
+    display: flex;
+    justify-content: space-between;
+    background: #00465c; /* Cor do fundo do cabeçalho */
+    align-items: center;
+}
+header h1 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #fff; /* Cor do título do cabeçalho */
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+header h1 i {
+    font-size: 1.5rem;
+    color: orangered;
+    text-shadow: -1px -1px #fff, -1px 1px #fff, 1px -1px #fff, 1px 1px #fff;
+    margin-right: .5rem;
+}
+header a {
+    display: block;
+    height: 4rem;
+    width: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #c7e2eb; /* Cor dos links do cabeçalho */
+    font-size: 1.5rem;
+}
