@@ -49,9 +49,11 @@ function toggleMenu(){
 function runApp(){
     console.log('meu app');
 
-    // monotorando botão do menu principal
+    // Monitorando botão do menu principal
     $(document).on('click', '#menu', toggleMenu);
 
+    // Monitorando o 'menuModal'
+    $(document).on('click', '#menuModal', toggleMenu);
 
 }
 
