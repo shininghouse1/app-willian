@@ -26,6 +26,10 @@
     /* Logo com font Awesome */
     --logo-border: -1px -1px #fff, -1px 1px #fff, 1px -1px #fff, 1px 1px #fff; /* Borda do logo */
     --logo-color: #00465c; /* Cor do logo */
+
+    /* Tema escuro */
+    --main-bg-dark: rgba(0,0,0,.8);
+    --font-color-dark: #eee;
 }
 
 /* CSS reset */
@@ -172,6 +176,12 @@ main {
     flex-grow: 1;
     background: var(--main-bg);
 }
+main .pageWrap {
+    padding: 0 1rem 1rem 1rem;
+}
+main .pageWrap > h3 {
+    margin-top: .5rem;
+}
 
 /* Splash Screen */
 #splashScreen {
@@ -219,4 +229,21 @@ main > h2 {
     position: absolute;
     top: 0;
     width: 100%;
+}
+
+/* Tema claro */
+.light {
+    background: var(--main-bg);
+    color: var(--font-color);
+}
+
+/* Tema escuro */
+.dark {
+    background: var(--main-bg-dark);
+    color: var(--font-color-dark);
+}
+
+/* Estilos genéricos */
+.text-center {
+    text-align: center;
 }
