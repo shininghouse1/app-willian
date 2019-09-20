@@ -12,20 +12,23 @@ var app = {
     config: function(){
         console.log('2) Configurando App...');
 
-        const store = window.localStorage;
-        var configData = store.getItem('config');
-        //console.log('-',config);
-        if(!configData) {
-            console.log('nao achei');
+        // Simulando um usuário logado
+        var user = {
+            name : 'Joca da Silva Souza de Castro Siriliano Queiróz Javaijunto',
+            email : 'joca@silva.com',
+            photo : 'img/jocasilva.jpg'
+        };
+
+        const store = window.localStorage; // Conexão com armazenamento local
+        var configData = store.getItem('config'); // Ler as configurações do armazenamento local 
+        if(!configData) { // Se não tem dados no armazenamento local
+            // Cria configuração default
             var config = {
-                tema : 'light',
-                coisa : 'treco',
-                treco : 'qqcoisa'
+                tema : 'light'
             };
-            var configJSON = JSON.stringify(config);
-            store.setItem('config', configJSON);
-        } else {
-            var config = JSON.parse(configData);
+            store.setItem('config', JSON.stringify(config)); // Gravar o JSON no armazenamento local
+        } else { // Se tem os dados no armazenamento local
+            var config = JSON.parse(configData); // Transforma JSON em objeto
         }
             
         // Configura jQuery AJAX CrossDomain para rotas no Android
@@ -33,13 +36,35 @@ var app = {
             options.crossDomain = true;
         });
 
+
+
         // Executa App
-        app.run(config);
+        app.run(config, user);
     },
 
     // Executa o app que está na função 'runApp()'
-    run: function(){
+    run: function(config, user){
         console.log('3) Executando o App...');
+
+        // Aplicar tema pré-configurado
+        $('main').attr('class', config.tema);
+
+        // Exibindo usuário no menu e na barra superior
+        var nomeAbreviado = user.name;
+        if(user.name.length > 20) {
+            nomeAbreviado = user.name.substr(0, 20) + '...';
+        }
+        var userMenuView = `
+        <div class="userMenu">
+            <img src="${user.photo}" alt="${user.name}">
+            <span title="${user.name}">${nomeAbreviado}</span>
+        </div>
+        `;
+        $('#userThings').attr({'href':'https://profiles.google.com/', 'target':'_blank'});
+        $('#userThings').html(userMenuView);
+        $('#userThings').addClass('userLogged');
+        $('#btnUser').html(`<img src="${user.photo}" alt="${user.name}" title="Ver meu perfil">`);
+        $('#btnUser').attr({'href':'https://profiles.google.com/', 'target':'_blank'});
 
         // Executa tratamento de eventos
         runApp();

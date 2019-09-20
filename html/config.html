@@ -22,10 +22,18 @@ $('header').slideUp('fast');
 // Monitora botões do tema
 $(document).on('click', 'input[name=temaBtn]', mudaTema);
 
+// Obter configurações do armazenamento local
+var store = window.localStorage; // Conexão com armazenamento local
+var configData = store.getItem('config'); // Ler as configurações do armazenamento local 
+var config = JSON.parse(configData); // Transforma JSON em objeto
+$('input[value=' + config.tema + ']').attr('checked', true); // Marca o campo com o tema correto
+
 // Troca tema
 function mudaTema(){
-    var tema = $(this).val();
-    $('main').attr('class', tema);
+    var tema = $(this).val(); // Obtém o valor do tema selecionado
+    $('main').attr('class', tema); // Aplica a classe do tema selecionado
+    config.tema = tema; // Altera o tema na configuração
+    store.setItem('config', JSON.stringify(config)); // Grava nova configuração
 }
-console.log(' - ', config);
+
 </script>
