@@ -1,2 +1,36 @@
-<h2>Contatos</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut commodo sed risus quis mattis. Donec suscipit est diam, facilisis ullamcorper purus pretium et. Quisque sed sapien iaculis, dignissim velit non, dignissim purus. Suspendisse cursus ultrices enim sit amet feugiat. Donec vulputate velit vel purus fermentum fringilla. Aliquam eu molestie erat. Etiam interdum leo sed finibus pretium. Donec pulvinar quis lacus sed ornare. Ut iaculis ex a vehicula ullamcorper. Morbi convallis at neque eu sollicitudin.</p>
+<h2>
+    <a href="#home"><i class="fas fa-fw fa-arrow-left"></i></a>
+    <span>Faça Contato</span>    
+</h2>
+<div class="pageWrap">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut commodo sed risus quis mattis. Donec suscipit est diam, facilisis ullamcorper purus pretium et. Quisque sed sapien iaculis, dignissim velit non, dignissim purus. Suspendisse cursus ultrices enim sit amet feugiat. Donec vulputate velit vel purus fermentum fringilla. Aliquam eu molestie erat. Etiam interdum leo sed finibus pretium. Donec pulvinar quis lacus sed ornare. Ut iaculis ex a vehicula ullamcorper. Morbi convallis at neque eu sollicitudin.</p>
+    <p class="text-center"><a href="#contatoTeste" id="contatoTeste" target="_none" class="btnDefault">Enviar Teste</a></p>
+</div>
+
+<script>
+// Oculta barra superior
+$('header').slideUp('fast');
+
+$(document).on('click', '#contatoTeste', function(){
+
+    $FB.db.collection("contatos").add({
+        data: agoraDb(),
+        nome: "Dilermano da Silva",
+        email: "dierl@mano.com",
+        assunto: 'Teste de Dilermano',
+        mensagem: 'Blá blá blá blá blá blá blá blá.',
+        status: 'recebido'
+    })
+    .then(function(docRef) {
+        console.log("Document written with ID: ", docRef.id);
+    })
+    .catch(function(error) {
+        console.error("Error adding document: ", error);
+    });
+
+
+
+});
+
+
+</script>

@@ -112,9 +112,9 @@ header a {
 header a:hover {
     color: #c7e2eb; /* Cor dos links do cabeçalho em hover */
 }
-#btnUser img {
+#headerUser img {
     width: 2.5rem;
-    height: 2.5rem;
+    height: auto;
     border-radius: 50%;
 }
 
@@ -146,20 +146,21 @@ nav hr {
     margin: 0;
     border-bottom: var(--menu-hr);
 }
-.userMenu {
+#menuProfile a {
     display: flex;
     align-items: center;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+    padding-left: 0.5rem;
 }
-.userMenu img {
+#menuProfile img {
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
     margin: .5rem;
 }
-.userLogged {
-    padding-top: 0rem;
-    padding-bottom: 0rem;
-    padding-left: 0.5rem;
+#menuProfile, #menuLogout {
+    display: none;
 }
 
 /* Animação do menu principal */
@@ -250,6 +251,10 @@ main > h2 {
     top: 0;
     width: 100%;
 }
+main > h2 a, main > h2 a:hover {
+    color: var(--header-font-color);
+    font-weight: normal;
+}
 
 /* Tema claro */
 .light {
@@ -266,4 +271,26 @@ main > h2 {
 /* Estilos genéricos */
 .text-center {
     text-align: center;
+}
+.btnDefault {
+    margin: auto;
+    padding: .5rem 1rem;
+    background: linear-gradient(#00aaff, #002233);
+    color: #fff;
+    font-family: inherit;
+    font-size: inherit;
+    border: 0;
+    border-radius: .3rem;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.btnDefault img {
+    width: 1.4rem;
+    height: auto;
+    margin-right: .5rem;
+}
+.btnDefault:hover {
+    background: linear-gradient(#cc0000, #330000);
+    color: #fff;
 }

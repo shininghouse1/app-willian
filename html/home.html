@@ -1,7 +1,64 @@
-<p>Página inicial</p>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut commodo sed risus quis mattis. Donec suscipit est diam, facilisis ullamcorper purus pretium et. Quisque sed sapien iaculis, dignissim velit non, dignissim purus. Suspendisse cursus ultrices enim sit amet feugiat. Donec vulputate velit vel purus fermentum fringilla. Aliquam eu molestie erat. Etiam interdum leo sed finibus pretium. Donec pulvinar quis lacus sed ornare. Ut iaculis ex a vehicula ullamcorper. Morbi convallis at neque eu sollicitudin.</p>
+<style>
+.pageWrap .row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: .5rem;
+}
+.pageWrap .col {
+    width: 50%;
+    text-align: center;
+    margin-top: .5rem;
+    padding: .5rem;
+}
+.pageWrap h4 {
+    margin: .4rem auto;
+}
+.pageWrap .box {
+    /* background: #efefef; */
+    margin: auto;
+}
+.pageWrap .row img {
+    width: 100%;
+    height: auto;
+    border-radius: .3rem;
+}
+</style>
+
+<div class="pageWrap">
+    <div class="row">
+        <div class="col">
+            <div class="box">
+                <img src="img/imgfake.jpg" alt="Imagem Fake">
+                <h4>Tìtulo Box 1</h4>
+                Lorem ipsum dolor.
+            </div>
+        </div>
+        <div class="col">
+            <div class="box">
+                <img src="img/imgfake.jpg" alt="Imagem Fake">
+                <h4>Tìtulo Box 2</h4>
+                Lorem ipsum dolor.
+            </div>
+        </div>
+        <div class="col">
+            <div class="box">
+                <img src="img/imgfake.jpg" alt="Imagem Fake">
+                <h4>Tìtulo Box 3</h4>
+                Lorem ipsum dolor.
+            </div>
+        </div>
+        <div class="col">
+            <div class="box">
+                <img src="img/imgfake.jpg" alt="Imagem Fake">
+                <h4>Tìtulo Box 4</h4>
+                Lorem ipsum dolor.
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
-    $('header').slideDown('fast');
-    menuOff();
+$('header').slideDown('fast');
+menuOff();
 </script>
