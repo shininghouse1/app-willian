@@ -47,8 +47,6 @@ var app = {
 // Tratamento de eventos do App
 function runApp(){
 
-    console.log($FB.db);
-
     // Carregar html/home.html
     //$.get('html/contatos.html', function(htmlHome){ /*************************** REMOVER ********************************/
     $.get('html/home.html', function(htmlHome){

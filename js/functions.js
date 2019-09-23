@@ -5,12 +5,6 @@ var $FB = {}; // Superglobal do Firebase
 // Construtor de configuração do App
 var conf = {
 
-    // Configurações locais iniciais do App
-    initial : initialConfig,
-
-    // Configuração da conexão com o Google Firebase
-    fireConfig : firebaseConfig,
-
     // Chave do armazenamento que contém a configuração local do App
     name : localStorageKeyName,
 
@@ -39,13 +33,13 @@ var conf = {
     // Retorna para as configurações iniciais
     reset : function(){
         this.conn().removeItem(this.name);
-        this.conn().setItem(this.name, JSON.stringify(this.initial));
-        return this.initial;
+        this.conn().setItem(this.name, JSON.stringify(initialConfig));
+        return initialConfig;
     },
 
     // Google Firebase
     fireStart : function(){
-        firebase.initializeApp(this.fireConfig); // Inicializa firebase
+        firebase.initializeApp(firebaseConfig); // Inicializa firebase
         $FB.db = firebase.firestore(); // Inicializa Firestore
     }
 }
