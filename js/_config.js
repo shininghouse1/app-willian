@@ -2,14 +2,14 @@
 
 // Consigurações da conexão com o Google Firebase
 var firebaseConfig = {
-    apiKey: "AIzaSyBP9a4m_X_6zxf5oM_q_Gl8AA7dZgop2PM",
-    authDomain: "noxixinaruaapp01.firebaseapp.com",
-    databaseURL: "https://noxixinaruaapp01.firebaseio.com",
-    projectId: "noxixinaruaapp01",
-    storageBucket: "noxixinaruaapp01.appspot.com",
-    messagingSenderId: "597702054125",
-    appId: "1:597702054125:web:8d79d4e9615e6a7df43ce4"
-}
+    apiKey: "AIzaSyCqpWi7y5mZrLF51riDU6IPGwEZsgzl5uQ",
+    authDomain: "shininghouse-8d3d5.firebaseapp.com",
+    databaseURL: "https://shininghouse-8d3d5.firebaseio.com",
+    projectId: "shininghouse-8d3d5",
+    storageBucket: "shininghouse-8d3d5.appspot.com",
+    messagingSenderId: "735467682715",
+    appId: "1:735467682715:web:0e4fd7e3299b27790dbf3e"
+  }
 
 // Nome da 'key' que armasena as configurações locais
 var localStorageKeyName = 'config';

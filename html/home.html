@@ -1,77 +1,92 @@
 <style>
-.pageWrap .row {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-top: .5rem;
-}
-.pageWrap .col {
-    width: 50%;
-    text-align: center;
-    margin-top: .5rem;
-    padding: .5rem;
-}
-.pageWrap h4 {
-    margin: .4rem auto;
-}
-.pageWrap .box {
-    /* background: #efefef; */
-    margin: auto;
-}
-.pageWrap .row img {
-    display: block;
-    background: #eee;
-}
-.fakeImg {
-    width: 100%;
-    height: auto;
-    border-radius: .3rem;
-}
-.fakeTitle {
-    width: 100%;
-    height: 1.2rem;
-    margin: .5rem auto;
-}
-.fakeText {
-    width: 100%;
-    height: 3rem;
-}
+    .pageWrap .row {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: .5rem;
+    }
+
+    .pageWrap .col {
+        width: 50%;
+        text-align: center;
+        margin-top: .5rem;
+        padding: .5rem;
+    }
+
+    .pageWrap h4 {
+        margin: .4rem auto;
+    }
+
+    .pageWrap .box {
+        /* background: #efefef; */
+        margin: auto;
+    }
+
+    .pageWrap .row img {
+        display: block;
+        background: #eee;
+    }
+
+    .fakeImg {
+        width: 100%;
+        height: auto;
+        border-radius: .3rem;
+    }
+
+    .fakeTitle {
+        width: 100%;
+        height: 1.2rem;
+        margin: .5rem auto;
+    }
+
+    .fakeText {
+        width: 100%;
+        height: 3rem;
+    }
+
+    #gg {
+        margin-top: 100%;
+    }
+
+    .gg {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        margin-top: 1rem;
+    }
 </style>
 
-<div class="pageWrap">
-    <div class="row">
-        <div class="col">
-            <div class="box">
-                <img src="img/1x1t.png" alt="Imagem Fake" class="fakeImg">
-                <img src="img/1x1t.png" alt="Imagem Fake" class="fakeTitle">
-                <img src="img/1x1t.png" alt="Imagem Fake" class="fakeText">
-            </div>
-        </div>
-        <div class="col">
-            <div class="box">
-                <img src="img/1x1t.png" alt="Imagem Fake" class="fakeImg">
-                <img src="img/1x1t.png" alt="Imagem Fake" class="fakeTitle">
-                <img src="img/1x1t.png" alt="Imagem Fake" class="fakeText">
-            </div>
-        </div>
-        <div class="col">
-            <div class="box">
-                <img src="img/1x1t.png" alt="Imagem Fake" class="fakeImg">
-                <img src="img/1x1t.png" alt="Imagem Fake" class="fakeTitle">
-                <img src="img/1x1t.png" alt="Imagem Fake" class="fakeText">
-            </div>
-        </div>
-        <div class="col">
-            <div class="box">
-                <img src="img/1x1t.png" alt="Imagem Fake" class="fakeImg">
-                <img src="img/1x1t.png" alt="Imagem Fake" class="fakeTitle">
-                <img src="img/1x1t.png" alt="Imagem Fake" class="fakeText">
-            </div>
-        </div>
-    </div>
-</div>
+<div id="mostraUser"></div>
 
 <script>
-$('header').slideDown('fast');
-menuOff();
+
+    var n = 1;
+    var mostra = '';
+    $FB.db.collection("servicos").where("status", "==", "recebido")
+        .get()
+        .then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+                // doc.data() is never undefined for query doc snapshots
+                console.log(doc.id, " => ", n, ') ', doc.data());
+
+                var u = doc.data();
+
+                mostra += `
+<div class="gg">
+<b>${u.nome}</b><br>
+<li>E-mail:  ${u.email}</li>
+<li>Telefone:  ${u.tel}</li>
+<li>:Tipo:  ${u.categoria}</li>
+<hr>
+</div>
+            `;
+
+                $('#mostraUser').html(mostra);
+                n++;
+            });
+        })
+        .catch(function (error) {
+            console.log("Error getting documents: ", error);
+        });
+    $('header').slideDown('fast');
+    menuOff();
 </script>

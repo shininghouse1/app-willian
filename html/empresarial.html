@@ -1,0 +1,40 @@
+<style>
+  .gg {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 1rem;
+}
+</style>
+<div id="mostraUser"></div>
+<script>
+        var n = 1;
+        var mostra = '';
+        $FB.db.collection("servicos").where("categoria", "==", "Empresarial")
+        .get()
+        .then(function(querySnapshot) {
+            querySnapshot.forEach(function(doc) {
+                // doc.data() is never undefined for query doc snapshots
+                console.log(doc.id, " => ", n, ') ', doc.data());
+    
+                var u = doc.data();
+    
+                mostra += `
+                <div class="gg">
+<b>${u.nome}</b><br>
+<li>E-mail:  ${u.email}</li>
+<li>Telefone:  ${u.tel}</li>
+<li>Tipo:  ${u.categoria}</li>
+<hr>
+</div>
+                `;
+    
+                $('#mostraUser').html(mostra);
+                n ++;
+            });
+        })
+        .catch(function(error) {
+            console.log("Error getting documents: ", error);
+        });
+        $('header').slideDown('fast');
+        menuOff();
+    </script>
